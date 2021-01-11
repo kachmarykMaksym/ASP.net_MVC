@@ -1,0 +1,126 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+
+<div>
+    <h4>Movies</h4>
+    <table class="table table-bordered table-condensed">
+        <thead>
+            <tr>
+                <td scope="col"><b>ID</b></td>
+                <td scope="col"><b>Name</b></td>
+                <td scope="col"><b>Directed</b></td>
+                <td scope="col"><b>Written</b>
+                <td scope="col"><b>Release</b>
+                <td scope="col"><b>Score</b></td>
+            </tr>
+        </thead>
+
+        @foreach (var v in ViewBag.Movie)
+        {
+            <tbody>
+                <tr>
+                    <td><p>@v.MovieID</p></td>
+                    <td><p>@v.Name</p></td>
+                    <td><p>@v.Directed</p></td>
+                    <td><p>@v.Written</p>
+                    <td><p>@v.Release</p></td>
+                    <td><p>@v.Score</p></td>
+                </tr>
+            </tbody>
+
+        }
+    </table>
+
+
+    <h4>Genre</h4>
+    <table class="table table-bordered table-condensed">
+        <thead>
+            <tr>
+                <td scope="col"><b>ID</b></td>
+                <td scope="col"><b>Name</b></td>
+            </tr>
+        </thead>
+
+        @foreach (var tr in ViewBag.Genre)
+        {
+            <tbody>
+                <tr>
+                    <td><p>@tr.GenreID</p></td>
+                    <td><p>@tr.Name</p></td>
+                </tr>
+            </tbody>
+        }
+    </table>
+
+    <h4>VoiceActors</h4>
+    <table class="table table-bordered table-condensed">
+        <thead>
+            <tr>
+                <td scope="col"><b>ID</b></td>
+                <td scope="col"><b>Name</b></td>
+                <td scope="col"><b>Surname</b></td>
+                <td scope="col"><b>Age</b>
+                <td scope="col"><b>Gender</b></td>
+            </tr>
+        </thead>
+
+        @foreach (var v in ViewBag.VoiceActor)
+        {
+            <tbody>
+                <tr>
+                    <td><p>@v.VoiceActorID</p></td>
+                    <td><p>@v.Name</p></td>
+                    <td><p>@v.Surname</p></td>
+                    <td><p>@v.Age</p>
+                    <td><p>@v.Gender</p></td>
+                </tr>
+            </tbody>
+        }
+    </table>
+
+    <p>
+        @Html.ActionLink("Add new row", "Add_row")
+    </p>
+
+    <h4>Movies-Genres</h4>
+    <table class="table table-bordered table-condensed">
+        <thead>
+            <tr>
+                <td scope="col"><b>Movie-ID</b></td>
+                <td scope="col"><b>Genre-ID</b></td>
+            </tr>
+        </thead>
+
+        @foreach (var tr in ViewBag.MovieGenre)
+        {
+            <tbody>
+                <tr>
+                    <td><p>@tr.MoviesID</p></td>
+                    <td><p>@tr.GenresID</p></td>
+                </tr>
+            </tbody>
+        }
+    </table>
+
+    <h4>Movies-VoiceActor</h4>
+    <table class="table table-bordered table-condensed">
+        <thead>
+            <tr>
+                <td scope="col"><b>Movie-ID</b></td>
+                <td scope="col"><b>VoiceActor-ID</b></td>
+            </tr>
+        </thead>
+
+        @foreach (var tr in ViewBag.MovieVoiceActor)
+        {
+            <tbody>
+                <tr>
+                    <td><p>@tr.MoviesID</p></td>
+                    <td><p>@tr.VoiceActorsID</p></td>
+                </tr>
+            </tbody>
+        }
+    </table>
+</div>
